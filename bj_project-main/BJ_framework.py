@@ -17,10 +17,9 @@ class Card:
         pass
 
 class Deck:
-    def __init__(self):
+    def __init__(self, suits = [], values = []):
         # TODO: Initialize the deck
         self.cards = [Card (suit, value) for suit in suits for value in values]
-        pass
 
     def shuffle(self):
         # TODO: Shuffle the cards
