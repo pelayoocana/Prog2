@@ -11,6 +11,7 @@ class Card:
 
     def get_numeric_value(self) -> int:
         # TODO: Return the numeric value of the card
+        kjjd    bd     db d
 
         pass
 
