@@ -5,6 +5,8 @@ import random
 class Card:
     def __init__(self, suit: str, value: int):
         # TODO: Initialize the attributes
+        self.suit = suit
+        self.value = value
         pass
 
     def get_numeric_value(self) -> int:
