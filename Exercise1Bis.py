@@ -1,8 +1,8 @@
 class Person:
-    def __init__(self, name, surname, age, address, phone_number):   # for the constructor we have to include in the brackets 
-        self.name = name                                             # the order of the attributes does affect in case we have established by default 
-        self.surname = surname                                        # los atributos con doble barra baja son privados 
-        self.age = age                                                # muy importante el constructpr para el examen 
+    def __init__(self, name, surname, age, address, phone_number):
+        self.name = name
+        self.surname = surname
+        self.age = age
         self.address = address
         self.phone_number = phone_number
 
@@ -37,7 +37,13 @@ class Person:
         self.phone_number = phone_number
 
     def print_info(self):
+    print(f"Name: {self.name}")
+    print(f"Surname: {self.surname}")
+    print(f"Age: {self.age}")
+    print(f"Address: {self.address}")
+    print(f"Phone Number: {self.phone_number}")
 
+        
 
 person = Person("Daniel", "M", 30, "123 Main St", "555-123-4567")
 person.print_info()

@@ -1,31 +1,50 @@
-import re
-from collections import Counter
+from abc import ABC, abstractmethod
+# nos permite definir la estructura básica de una figura geométrica 
 
-def count_words(text):
-    # Remove punctuation and convert text to lowercase
-    #text = re.sub(r'[^\w\s]', '', text)
-    text = text.lower()
-    # function lower convert all the text to "minusculas"
-    # Split the text into words
-    words = text.split()
-    
-    # Count the frequency of each word using Counter
-    word_counts = Counter(words)
-    
-    return word_counts
+class Figure(ABC):
+    def __init__(self):
+        self.area = None
+        self.perimeter = None
+
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+    @abstractmethod
+    def calculate_perimeter(self):
+        pass
+
+class Square(Figure):  # hereda de la clase Figure, el constructor , lo hace heredando el area y perimetros, 
+    def __init__(self, side=0):
+        super().__init__
+        self.side = side
+
+    def calculate_area(self):
+        self.area = self.side * self.side
+
+    def calculate_perimeter(self):
+        self.perimeter = 4 * self.side
+
+
+newSquare = Square(10)
+newSquare.calculate_area()
+newSquare.calculate_perimeter()
+print(f"Square - Area: {newSquare.area}, Perimeter: {newSquare.perimeter}")
+
+class Rectangle(Figure):
+    def __init__(self, width, height):
+        super().__init__()
+        self.height = height
+        self.width = width
+
+    def calculate_area(self):
+        self.area = self.width * self.height
+
+    def calculate_perimeter(self):
+        self.perimeter = 2 * (self.width + self.height)
 
 # Example usage:
-if __name__ == "__main__":
-    input_text = """
-    This is a sample text. This text contains some words, and some words are repeated.
-    The program should count how many times each word appears in this text.
-    """
-    
-    word_counts = count_words(input_text)
-    
-
-    # count_words= es una libreria/diccionario
-    # Print the word counts
-    for word, count in word_counts.items():
-        print(f"'{word}': {count}")
-        
+rectangle = Rectangle(5, 7)
+rectangle.calculate_area()
+rectangle.calculate_perimeter()
+print(f"Rectangle - Area: {rectangle.area}, Perimeter: {rectangle.perimeter}")
